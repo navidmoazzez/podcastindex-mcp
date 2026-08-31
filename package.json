@@ -1,0 +1,49 @@
+{
+  "name": "@thenavidm/podcastindex-mcp",
+  "version": "0.1.0",
+  "description": "Podcast Index MCP server for Claude Code and AI agents. 36 tools for podcast search, episode transcripts you can actually read and search, Podcasting 2.0 tags, value-for-value data, feed health and index stats.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "podcastindex-mcp": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "verify": "npm run typecheck && npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "license": "MIT",
+  "author": "Navid Moazzez <https://navid.me>",
+  "homepage": "https://navid.me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenavidm/podcastindex-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thenavidm/podcastindex-mcp/issues"
+  },
+  "keywords": [
+    "mcp", "mcp-server", "model-context-protocol", "podcastindex", "podcast-index",
+    "podcast", "podcasts", "podcasting20", "podcast-namespace", "transcripts",
+    "value4value", "rss", "claude", "claude-code", "claude-desktop", "cursor",
+    "windsurf", "anthropic", "ai-agents", "llm-tools", "typescript"
+  ],
+  "files": ["dist", "README.md", "SKILL.md", "LICENSE"]
+}
