@@ -56,8 +56,6 @@ Claude: Found it. Episode 309, transcript is a 3-hour VTT.
 | 10 | [Troubleshooting](#10-troubleshooting-) | Symptom to cause |
 | 11 | [FAQ](#11-faq-) | Including what an MCP server is |
 
----
-
 ## 1. What you can ask it 💬
 
 - When did they talk about pricing on that episode, and what did they say?
