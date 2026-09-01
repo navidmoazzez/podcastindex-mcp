@@ -138,7 +138,7 @@ export const getShowProfile = defineTool({
     return [
       `<show_profile feed_id="${feed.id}">`,
       renderFeed(feed, "  "),
-      `  <publishing cadence="${cadence}" episodes_total="${feed.episodeCount ?? 0}" episodes_analysed="${
+      `  <publishing cadence="${cadence}" episodes_total="${feed.episodeCount ?? 0}" episodes_analyzed="${
         items.length
       }" newest="${isoFrom(newest) ?? "unknown"}"${
         silentDays !== undefined ? ` days_since_last="${silentDays}"` : ""

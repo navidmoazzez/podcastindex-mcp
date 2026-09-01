@@ -656,7 +656,7 @@ Navid Moazzez is a leading AI business strategist, and the host of the AI Creato
 
 ## Dependencies
 
-| Library | Licence | What it does |
+| Library | License | What it does |
 |---|---|---|
 | [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) | MIT | The MCP server and transports |
 | [zod](https://github.com/colinhacks/zod) | MIT | Tool argument schemas and validation |

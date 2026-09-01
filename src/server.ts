@@ -15,7 +15,8 @@ import { WriteGuard } from "./safety.js";
 import { ALL_TOOLS } from "./tools/index.js";
 import { register, type ToolContext } from "./tools/kit.js";
 
-export const VERSION = "0.1.0";
+export { VERSION } from "./version.js";
+import { VERSION } from "./version.js";
 
 export const INSTRUCTIONS = `Tools for Podcast Index: the open podcast directory, its Podcasting 2.0 data, and the transcripts and chapters that data points at.
 
@@ -69,7 +70,7 @@ export function buildServer(
 /**
  * Resources: the context a model needs about Podcast Index itself.
  *
- * Trimmed to what changes behaviour. A model that knows Podcasting 2.0 tags are
+ * Trimmed to what changes behavior. A model that knows Podcasting 2.0 tags are
  * usually absent stops treating an empty transcript result as a bug, and one
  * that knows a value block is not revenue stops reporting it as income.
  */

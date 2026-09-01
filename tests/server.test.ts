@@ -9,8 +9,9 @@
  * while having done nothing.
  */
 
+import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
-import { buildServer } from "../src/server.js";
+import { buildServer, VERSION } from "../src/server.js";
 import { ALL_TOOLS } from "../src/tools/index.js";
 import { PodcastIndexClient } from "../src/api/client.js";
 import { HttpClient } from "../src/api/http.js";
@@ -220,5 +221,17 @@ describe("the wire", () => {
     await api.podcastByFeedId(1);
     await api.podcastByFeedId(1);
     expect(calls).toHaveLength(1);
+  });
+});
+
+describe("version", () => {
+  it("matches package.json", async () => {
+    // These drifted once: package.json said 1.0.0 while --version and the MCP
+    // handshake both reported 0.1.0. Nothing broke, which is exactly why nobody
+    // would have noticed, so it is pinned here rather than left to discipline.
+    const pkg = JSON.parse(
+      await readFile(new URL("../package.json", import.meta.url), "utf8"),
+    ) as { version: string };
+    expect(VERSION).toBe(pkg.version);
   });
 });

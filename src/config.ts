@@ -25,6 +25,8 @@
  * for it by name.
  */
 
+import { VERSION } from "./version.js";
+
 export type Config = {
   /** API key. Public half of the credential, sent as a header. */
   apiKey?: string;
@@ -57,7 +59,7 @@ export const DEFAULT_API_HOST = "https://api.podcastindex.org/api/1.0";
  * and practically rude, so this names the server and lets anyone embedding it
  * say who they really are.
  */
-export const DEFAULT_USER_AGENT = "podcastindex-mcp/0.1.0";
+export const DEFAULT_USER_AGENT = `podcastindex-mcp/${VERSION}`;
 
 function envFlag(name: string, fallback: boolean): boolean {
   const raw = process.env[name];
