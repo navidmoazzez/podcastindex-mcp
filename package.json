@@ -1,11 +1,11 @@
 {
   "name": "@thenavidm/podcastindex-mcp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Podcast Index MCP server for Claude Code and AI agents. 36 tools for podcast search, episode transcripts you can actually read and search, Podcasting 2.0 tags, value-for-value data, feed health and index stats.",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "podcastindex-mcp": "./dist/index.js"
+    "podcastindex-mcp": "dist/index.js"
   },
   "engines": {
     "node": ">=20"
@@ -30,7 +30,7 @@
     "vitest": "^2.1.0"
   },
   "license": "MIT",
-  "author": "Navid Moazzez <https://navid.me>",
+  "author": "Navid Moazzez (https://navid.me)",
   "homepage": "https://navid.me",
   "repository": {
     "type": "git",
@@ -40,10 +40,35 @@
     "url": "https://github.com/navidmoazzez/podcastindex-mcp/issues"
   },
   "keywords": [
-    "mcp", "mcp-server", "model-context-protocol", "podcastindex", "podcast-index",
-    "podcast", "podcasts", "podcasting20", "podcast-namespace", "transcripts",
-    "value4value", "rss", "claude", "claude-code", "claude-desktop", "cursor",
-    "windsurf", "anthropic", "ai-agents", "llm-tools", "typescript"
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "podcastindex",
+    "podcast-index",
+    "podcast",
+    "podcasts",
+    "podcasting20",
+    "podcast-namespace",
+    "transcripts",
+    "value4value",
+    "rss",
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "cursor",
+    "windsurf",
+    "anthropic",
+    "ai-agents",
+    "llm-tools",
+    "typescript"
   ],
-  "files": ["dist", "README.md", "SKILL.md", "LICENSE"]
+  "files": [
+    "dist",
+    "README.md",
+    "SKILL.md",
+    "LICENSE"
+  ],
+  "contributors": [
+    "Navid Moazzez (https://navid.me)"
+  ]
 }

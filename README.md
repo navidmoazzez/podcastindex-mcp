@@ -23,7 +23,7 @@ So you can ask when something was said, and get an answer.
 
 There are 36 tools. One free key covers all but two of them.
 
-Built by [Navid Moazzez](https://navid.me).
+Built by [Navid Moazzez](https://navid.me?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp).
 
 ```
 You: on that Lex Fridman episode with Carmack, when do they get into VR latency?
@@ -648,7 +648,7 @@ Navid Moazzez is a leading AI business strategist, and the host of the AI Creato
 
 **Links**
 
-- Personal website: [navid.me](https://navid.me)
+- Personal website: [navid.me](https://navid.me?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp)
 - YouTube: [@thenavidm](https://youtube.com/@thenavidm?sub_confirmation=1) and [@thenavidai](https://youtube.com/@thenavidai?sub_confirmation=1)
 - X: [@thenavidm](https://x.com/thenavidm)
 - Instagram: [@thenavidm](https://instagram.com/thenavidm)
@@ -678,4 +678,4 @@ Not affiliated with, endorsed by, or connected to Podcast Index LLC.
 
 ---
 
-© 2026 [NM Media](https://navid.media). Made with ❤️ by [Navid Moazzez](https://navid.me).
+© 2026 [NM Media](https://navid.media?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp). Made with ❤️ by [Navid Moazzez](https://navid.me?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp).
