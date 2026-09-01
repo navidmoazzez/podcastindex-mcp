@@ -16,15 +16,17 @@ not answerable from metadata.
 
 ## Reach for these first
 
-| Question | Tool |
-|---|---|
-| When did they say X on this episode? | `search_transcript` |
-| What is actually in this episode? | `get_transcript`, or `get_chapters` for the cheap version |
-| Tell me about this show | `get_show_profile`, not four separate calls |
-| Where has this person been a guest? | `find_guest_appearances` |
-| Which podcasts should I pitch? | `find_shows_to_pitch` |
-| Is my feed broken? | `check_feed_health` |
-| I only have a name | `search_podcasts` first, then anything else |
+Only the non-obvious routing is here. The tool list already tells you what each
+tool does.
+
+`get_show_profile` returns the whole picture in one call. Building the same
+answer from four separate calls is four requests and a slower reply.
+
+`get_chapters` before `get_transcript` when the question is "what is in this
+episode". Chapters are a fraction of the tokens and usually answer it.
+
+`search_podcasts` first whenever you only have a name. Every other tool wants a
+feed id or a feed URL, so guessing one wastes a turn.
 
 ## The rules that prevent wrong answers
 

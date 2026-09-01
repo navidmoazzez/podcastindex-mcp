@@ -78,11 +78,6 @@ why "when did they say that" is a question you can now ask.
 
 Node 20 or newer. Nothing else.
 
-> **Not on npm yet.**
-> The install lines below are what this will look like once the package ships.
-> Until then, clone the repo and point your client at `dist/index.js` after
-> running `npm install && npm run build`.
-
 ```bash
 npx -y @thenavidm/podcastindex-mcp@latest --version
 ```
@@ -521,7 +516,7 @@ Run `doctor` first. It tests every credential and measures the clock.
 <details>
 <summary><b>What is an MCP server?</b></summary>
 
-A standard way to give an AI assistant real access to a tool, so it can act
+An MCP server is a standard way to give an AI assistant real access to a tool, so it can act
 rather than guess. You install it once, your assistant gains the tools, and it
 works in Claude, Cursor, and anything else that speaks MCP.
 
@@ -533,7 +528,7 @@ absorbed in training. With one, it goes and looks.
 <details>
 <summary><b>What is Podcast Index?</b></summary>
 
-An open, free directory of podcasts. Around four million feeds, run
+Podcast Index is an open, free directory of podcasts. Around four million feeds, run
 independently of Apple and Spotify, with an API anybody can use.
 
 It is also where Podcasting 2.0 lives: an open extension to RSS that lets
@@ -578,7 +573,7 @@ show" is one call here and an afternoon by hand.
 <details>
 <summary><b>Can it delete something by accident?</b></summary>
 
-No. Nothing here deletes anything, because the API has no delete.
+It cannot. Nothing here deletes anything, because the API has no delete.
 
 The action worth knowing about is the opposite: `submit_feed` adds a podcast to
 a public directory permanently, and there is no way to remove it through this
@@ -590,7 +585,7 @@ with write permission that you will not have unless you asked for one.
 <details>
 <summary><b>Does it cost anything?</b></summary>
 
-No. The server is MIT licensed and a Podcast Index API key is free with no
+It costs nothing. The server is MIT licensed and a Podcast Index API key is free with no
 approval step and no paid tier.
 
 </details>
@@ -598,7 +593,7 @@ approval step and no paid tier.
 <details>
 <summary><b>Does it work with ChatGPT or Cursor, or only Claude?</b></summary>
 
-Any client that speaks MCP. Section 4 covers Claude Code, Claude Desktop,
+It works with any client that speaks MCP. Section 4 covers Claude Code, Claude Desktop,
 claude.ai, Cursor, Windsurf, VS Code, Codex CLI and Gemini CLI.
 
 claude.ai is the one that works differently, because it runs connectors from
@@ -640,6 +635,10 @@ nothing on disk to clean up unless you configured an audit log.
 
 </details>
 
+## Questions
+
+Run into a problem or have a question? [Open an issue](https://github.com/navidmoazzez/podcastindex-mcp/issues) and I will help.
+
 ## About the author 👋
 
 Navid Moazzez is a leading AI business strategist, and the host of the AI Creator Summit, watched by 100,000+ creators. He helps creators and founders master AI and build their own AI Operating System (AI OS) to automate their business and life. This Podcast Index MCP server is one piece of that system.
@@ -647,13 +646,6 @@ Navid Moazzez is a leading AI business strategist, and the host of the AI Creato
 **Links**
 
 - Personal website: [navid.me](https://navid.me)
-- Store: [navid.bio](https://navid.bio)
-- AI OS Starter Kit: [aios.guide](https://aios.guide)
-- AI OS Workshop: [aiosworkshop.com](https://aiosworkshop.com)
-- AI Creator OS: [aicreatoros.co](https://aicreatoros.co)
-- AI Tools Library: [aitoolslibrary.io](https://aitoolslibrary.io)
-- Video Gear Guide: [videogear.guide](https://videogear.guide)
-- Navid Media: [navid.media](https://navid.media)
 - YouTube: [@thenavidm](https://youtube.com/@thenavidm?sub_confirmation=1) and [@thenavidai](https://youtube.com/@thenavidai?sub_confirmation=1)
 - X: [@thenavidm](https://x.com/thenavidm)
 - Instagram: [@thenavidm](https://instagram.com/thenavidm)
@@ -661,18 +653,28 @@ Navid Moazzez is a leading AI business strategist, and the host of the AI Creato
 
 ## Dependencies
 
-| Package | Licence | Why |
+| Library | Licence | What it does |
 |---|---|---|
-| [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk) | MIT | The MCP protocol itself |
-| [zod](https://github.com/colinhacks/zod) | MIT | Tool input schemas |
+| [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) | MIT | The MCP server and transports |
+| [zod](https://github.com/colinhacks/zod) | MIT | Tool argument schemas and validation |
 
 Data comes from [Podcast Index](https://podcastindex.org), which is free and
 open. The [Podcasting 2.0 namespace](https://github.com/Podcastindex-org/podcast-namespace)
-is what defines the transcript, chapter, person, soundbite and value tags this
-server reads.
+defines the transcript, chapter, person, soundbite and value tags this server
+reads.
+
+## Security
+
+Found a vulnerability? [Report it privately](https://github.com/navidmoazzez/podcastindex-mcp/security/advisories/new), not as a public issue. [SECURITY.md](SECURITY.md) covers what this server can reach, the write-safety model, and running it over HTTP.
 
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+[MIT](./LICENSE). Free to use, modify, and share.
+
+Not affiliated with, endorsed by, or connected to Podcast Index LLC.
+
+---
+
+© 2026 NM Media. Made with ❤️ by [Navid Moazzez](https://navid.me).
 
 © 2026 NM Media. Made with ❤️ by [Navid Moazzez](https://navid.me).
