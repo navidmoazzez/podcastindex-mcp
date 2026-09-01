@@ -14,6 +14,7 @@ import { WriteGuard } from "../src/safety.js";
 import { getChapters, getTranscript, searchTranscript } from "../src/tools/content.js";
 import { checkFeedHealth } from "../src/tools/health.js";
 import { findShowsToPitch, getShowProfile } from "../src/tools/research.js";
+import { getValueBlock } from "../src/tools/value.js";
 import { notifyFeedUpdate } from "../src/tools/write.js";
 import type { ToolContext } from "../src/tools/kit.js";
 import { EPISODE, FEED, fakeFetch, testConfig } from "./helpers.js";
@@ -246,5 +247,26 @@ describe("notify_feed_update", () => {
     await expect(
       notifyFeedUpdate.handler({ show: "9b024349-ccf0-5f69-a609-6b82873eab3c" }, ctx),
     ).rejects.toThrow(/get_podcast first/);
+  });
+});
+
+describe("value blocks", () => {
+  it("treats the 400 that means 'no value block' as an empty result, not a failure", async () => {
+    // Podcast Index answers a feed with no value block with HTTP 400 and a body
+    // saying so. That is the normal case for all but about 33,000 of its 4.7
+    // million feeds, so surfacing it as an error would report the most common
+    // outcome as a broken request.
+    const { ctx } = context(() => ({
+      status: 400,
+      body: { status: "false", query: { id: "1" }, value: [], description: "This feed has no value block." },
+    }));
+    const out = (await getValueBlock.handler({ show: "920666" }, ctx)) as string;
+    expect(out).toContain('present="false"');
+    expect(out).toContain("Most podcasts do not carry one");
+  });
+
+  it("still raises a 400 that is genuinely a bad request", async () => {
+    const { ctx } = context(() => ({ status: 400, body: { description: "Malformed parameter." } }));
+    await expect(getValueBlock.handler({ show: "920666" }, ctx)).rejects.toThrow();
   });
 });

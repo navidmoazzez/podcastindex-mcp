@@ -17,6 +17,7 @@
  */
 
 import type { HttpClient } from "./http.js";
+import type { PodcastIndexError } from "./errors.js";
 import type {
   AddResponse,
   CategoriesResponse,
@@ -274,20 +275,47 @@ export class PodcastIndexClient {
 
   // ------------------------------------------------------------------ value
 
+  /**
+   * A feed with no value block is answered with **HTTP 400**, not 200.
+   *
+   * That is the normal case, not an error: about 33,000 of the index's 4.7
+   * million feeds carry a value block, so the overwhelming majority of honest
+   * lookups take this branch. Letting the 400 surface would report the most
+   * common outcome as a failure, and a caller told "the request was bad" will
+   * retry it differently forever rather than concluding the show simply does
+   * not take listener payments.
+   *
+   * So the specific 400 that means "no value block" is translated into an empty
+   * result. Any other 400 still throws, because that one really is a bad
+   * request.
+   */
+  private async value(path: string, params: Record<string, string | number>): Promise<ValueResponse> {
+    try {
+      return await this.http.request<ValueResponse>(path, { params });
+    } catch (error) {
+      const status = (error as PodcastIndexError)?.status;
+      const detail = (error as PodcastIndexError)?.detail ?? "";
+      if (status === 400 && /no value block/i.test(detail)) {
+        return { status: "false", value: null, description: "This feed has no value block." };
+      }
+      throw error;
+    }
+  }
+
   valueByFeedId(id: number): Promise<ValueResponse> {
-    return this.http.request<ValueResponse>("/value/byfeedid", { params: { id } });
+    return this.value("/value/byfeedid", { id });
   }
 
   valueByFeedUrl(url: string): Promise<ValueResponse> {
-    return this.http.request<ValueResponse>("/value/byfeedurl", { params: { url } });
+    return this.value("/value/byfeedurl", { url });
   }
 
   valueByPodcastGuid(guid: string): Promise<ValueResponse> {
-    return this.http.request<ValueResponse>("/value/bypodcastguid", { params: { guid } });
+    return this.value("/value/bypodcastguid", { guid });
   }
 
   valueByEpisodeGuid(params: { podcastguid: string; episodeguid: string }): Promise<ValueResponse> {
-    return this.http.request<ValueResponse>("/value/byepisodeguid", { params });
+    return this.value("/value/byepisodeguid", params);
   }
 
   // ------------------------------------------------------------ misc, stats
