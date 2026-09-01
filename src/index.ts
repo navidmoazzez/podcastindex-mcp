@@ -40,7 +40,7 @@ If every call fails with an authentication error, check the clock before the
 credentials. Requests are signed with a timestamp and the window is three
 minutes. Run doctor, which measures it.
 
-https://github.com/thenavidm/podcastindex-mcp
+https://github.com/navidmoazzez/podcastindex-mcp
 `;
 
 async function main(): Promise<void> {

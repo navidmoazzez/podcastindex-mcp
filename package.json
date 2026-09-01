@@ -34,10 +34,10 @@
   "homepage": "https://navid.me",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thenavidm/podcastindex-mcp.git"
+    "url": "git+https://github.com/navidmoazzez/podcastindex-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/thenavidm/podcastindex-mcp/issues"
+    "url": "https://github.com/navidmoazzez/podcastindex-mcp/issues"
   },
   "keywords": [
     "mcp", "mcp-server", "model-context-protocol", "podcastindex", "podcast-index",
