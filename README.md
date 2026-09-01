@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="https://cdn.navid.media/connectors/podcastindex-icon.png" alt="Podcast Index" width="88">
-</div>
+<img src="https://cdn.navid.media/connectors/podcastindex-icon.png" alt="Podcast Index" width="88">
 
 # Podcast Index MCP
 
