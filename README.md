@@ -4,7 +4,10 @@
 
 # Podcast Index MCP
 
+[![Stars](https://img.shields.io/github/stars/navidmoazzez/podcastindex-mcp?style=flat&logo=github&label=Stars)](https://github.com/navidmoazzez/podcastindex-mcp)
 [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/@thenavidm/podcastindex-mcp?color=orange&label=npm)](https://www.npmjs.com/package/@thenavidm/podcastindex-mcp)
+[![Downloads](https://img.shields.io/npm/dm/@thenavidm/podcastindex-mcp?color=green&label=downloads)](https://www.npmjs.com/package/@thenavidm/podcastindex-mcp)
 [![YouTube](https://img.shields.io/badge/YouTube-@thenavidm-red?logo=youtube&logoColor=white)](https://youtube.com/@thenavidm?sub_confirmation=1)
 [![X](https://img.shields.io/badge/X-@thenavidm-black?logo=x)](https://x.com/thenavidm)
 
@@ -675,6 +678,4 @@ Not affiliated with, endorsed by, or connected to Podcast Index LLC.
 
 ---
 
-© 2026 NM Media. Made with ❤️ by [Navid Moazzez](https://navid.me).
-
-© 2026 NM Media. Made with ❤️ by [Navid Moazzez](https://navid.me).
+© 2026 [NM Media](https://navid.media). Made with ❤️ by [Navid Moazzez](https://navid.me).
