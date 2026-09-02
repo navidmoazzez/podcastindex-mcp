@@ -24,22 +24,7 @@ There are 36 tools. One free key covers all but two of them.
 
 Built by [Navid Moazzez](https://navid.me?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp).
 
-```
-You: on that Lex Fridman episode with Carmack, when do they get into VR latency?
-
-Claude: Found it. Episode 309, transcript is a 3-hour VTT.
-
-  Three places, and only one is the real discussion:
-
-    1:47:12  Carmack  "the latency problem is not a rendering problem,
-                       it is a scheduling problem", this is the one,
-                       runs about 20 minutes
-    0:38:40  Carmack  passing mention, comparing it to the Quest port
-    2:51:03  Lex      callback in the wrap-up
-
-  The 1:47 section is where he lays out the whole argument. Want the
-  transcript from there?
-```
+<img src="https://cdn.navid.media/repos/podcastindex-mcp.gif?v=1" alt="Claude Code using the Podcast Index MCP server" width="520">
 
 ## Contents
 
