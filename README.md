@@ -24,7 +24,7 @@ There are 36 tools. One free key covers all but two of them.
 
 Built by [Navid Moazzez](https://navid.me?utm_source=github&utm_medium=readme&utm_campaign=podcastindex-mcp).
 
-<img src="https://cdn.navid.media/repos/podcastindex-mcp.gif?v=1" alt="Claude Code using the Podcast Index MCP server" width="520">
+<img src="https://cdn.navid.media/repos/podcastindex-mcp.gif?v=2" alt="Claude Code using the Podcast Index MCP server" width="520">
 
 ## Contents
 
