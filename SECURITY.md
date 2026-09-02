@@ -61,3 +61,12 @@ first tool result arrives.
 For an agent working unattended on other people's content, `PODCASTINDEX_READ_ONLY=1`
 is the real defence. The fencing helps a model behave; only the missing tools
 stop it acting.
+
+## Good-faith research
+
+Look at whatever you like in this repository. When testing, please do not access,
+change or delete data that is not yours, and do not disrupt a service other
+people depend on. If a test could affect anyone else, stop and send a private
+report first.
+
+Research done in that spirit is welcome, and nothing here is a trap.
