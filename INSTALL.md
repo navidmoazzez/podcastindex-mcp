@@ -1,6 +1,7 @@
-# Getting a Podcast Index API key
+# Install
 
-The long version of section 3 of the README. Two minutes, free, no approval.
+Getting a Podcast Index API key: the long version of section 3 of the README,
+every step with what to do when one fails. Two minutes, free, no approval.
 
 ## What you are getting
 

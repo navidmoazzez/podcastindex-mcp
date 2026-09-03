@@ -47,15 +47,33 @@ export type Risk =
  */
 export type Surface = "index" | "open" | "web";
 
+/**
+ * Which of this package's two surfaces is making the call.
+ *
+ * Not to be confused with `Surface` above, which says what a tool reaches out
+ * to. This says who is asking, and it exists for one reason: a refusal has to
+ * name the thing its caller can actually type. Telling someone at a terminal to
+ * "call again with confirm: true" hands them a JSON key they cannot type, and
+ * telling a model to pass `--confirm` hands it a shell flag it cannot send.
+ */
+export type CallerSurface = "mcp" | "cli";
+
 export class WriteGuard {
   private readonly config: Config;
+  private readonly surface: CallerSurface;
 
-  constructor(config: Config) {
+  constructor(config: Config, surface: CallerSurface = "mcp") {
     this.config = config;
+    this.surface = surface;
   }
 
   get readOnly(): boolean {
     return this.config.readOnly;
+  }
+
+  /** How a confirmation is spelled, in the words the calling surface uses. */
+  get confirmFlag(): string {
+    return this.surface === "cli" ? "--confirm" : "confirm: true";
   }
 
   check(tool: string, risk: Risk, confirm: boolean | undefined, summary: string): void {
@@ -78,7 +96,7 @@ export class WriteGuard {
       if (confirm !== true) {
         this.audit(tool, summary, "blocked: no confirm");
         throw new WriteBlockedError(
-          `${tool} adds a feed to a public directory that hundreds of podcast apps read, and there is no way to remove it through this API. About to: ${summary}. Call again with confirm: true if that is what was asked for.`,
+          `${tool} adds a feed to a public directory that hundreds of podcast apps read, and there is no way to remove it through this API. About to: ${summary}. Call again with ${this.confirmFlag} if that is what was asked for.`,
         );
       }
     }

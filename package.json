@@ -5,7 +5,8 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "podcastindex-mcp": "dist/index.js"
+    "podcastindex-mcp": "dist/index.js",
+    "podcastindex-cli": "dist/index.js"
   },
   "engines": {
     "node": ">=20"
@@ -22,7 +23,8 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
@@ -34,10 +36,10 @@
   "homepage": "https://navid.me",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/navidmoazzez/podcastindex-mcp.git"
+    "url": "git+https://github.com/thenavidm/podcastindex-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/navidmoazzez/podcastindex-mcp/issues"
+    "url": "https://github.com/thenavidm/podcastindex-mcp/issues"
   },
   "keywords": [
     "mcp",

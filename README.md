@@ -2,7 +2,7 @@
 
 # Podcast Index MCP
 
-[![Stars](https://img.shields.io/github/stars/navidmoazzez/podcastindex-mcp?style=flat&logo=github&label=Stars)](https://github.com/navidmoazzez/podcastindex-mcp)
+[![Stars](https://img.shields.io/github/stars/thenavidm/podcastindex-mcp?style=flat&logo=github&label=Stars)](https://github.com/thenavidm/podcastindex-mcp)
 [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
 [![npm](https://img.shields.io/npm/v/@thenavidm/podcastindex-mcp?color=orange&label=npm)](https://www.npmjs.com/package/@thenavidm/podcastindex-mcp)
 [![Downloads](https://img.shields.io/npm/dm/@thenavidm/podcastindex-mcp?color=green&label=downloads)](https://www.npmjs.com/package/@thenavidm/podcastindex-mcp)
@@ -119,7 +119,7 @@ To revoke a key, contact Podcast Index through the support links on
 
 ## 4. Connect your client 🔌
 
-The long version, every step with what to do when one fails, is in [references/setup.md](references/setup.md).
+The long version, every step with what to do when one fails, is in [INSTALL.md](INSTALL.md).
 
 ### Claude Code
 
@@ -229,6 +229,30 @@ PODCASTINDEX_API_SECRET = "your_secret"
 
 Any stdio MCP client takes the same three things: the command `npx`, the args,
 and the env block.
+
+### Every setting
+
+Two are required. The rest have defaults that suit almost everyone, and are
+listed here so nobody has to read the source to find out what is tunable.
+
+| Variable | Default | What it does |
+|---|---|---|
+| `PODCASTINDEX_API_KEY` | none | Your API key. Required |
+| `PODCASTINDEX_API_SECRET` | none | Your API secret. Required, and never transmitted |
+| `PODCASTINDEX_USER_AGENT` | `podcastindex-mcp/<version>` | Identify your product to Podcast Index |
+| `PODCASTINDEX_READ_ONLY` | `0` | `1` hides the three tools that write |
+| `PODCASTINDEX_ALLOW_DESTRUCTIVE` | `1` | `0` keeps the recrawl ping, blocks the two submits |
+| `PODCASTINDEX_AUDIT_LOG` | none | Path to an append-only log of every attempted write |
+| `PODCASTINDEX_MAX_TRANSCRIPT_CHARS` | `24000` | How much transcript one call returns |
+| `PODCASTINDEX_CACHE_TTL_MS` | `300000` | How long a response stays reusable |
+| `PODCASTINDEX_REQUEST_TIMEOUT_MS` | `30000` | Per-request deadline against the index |
+| `PODCASTINDEX_FILE_TIMEOUT_MS` | `45000` | Deadline for a transcript file on a publisher's host |
+| `PODCASTINDEX_MIN_REQUEST_INTERVAL_MS` | `120` | Spacing between requests, to stay under the rate limit |
+| `PODCASTINDEX_MAX_RETRIES` | `3` | Retries on rate limits and 5xx |
+| `PODCASTINDEX_API_HOST` | api.podcastindex.org | Point at another host. A test seam, not a setting |
+| `PODCASTINDEX_HTTP_PORT` | `8000` | For `--http` only |
+| `PODCASTINDEX_HTTP_HOST` | `127.0.0.1` | For `--http` only |
+| `PODCASTINDEX_HTTP_TOKEN` | none | Bearer token. Required to bind anything but loopback |
 
 ## 5. Check it worked 🩺
 
@@ -624,7 +648,7 @@ nothing on disk to clean up unless you configured an audit log.
 
 ## Questions
 
-Run into a problem or have a question? [Open an issue](https://github.com/navidmoazzez/podcastindex-mcp/issues) and I will help.
+Run into a problem or have a question? [Open an issue](https://github.com/thenavidm/podcastindex-mcp/issues) and I will help.
 
 ## About the author 👋
 
@@ -654,7 +678,7 @@ reads.
 
 ## Security
 
-Found a vulnerability? [Report it privately](https://github.com/navidmoazzez/podcastindex-mcp/security/advisories/new), not as a public issue. [SECURITY.md](SECURITY.md) covers what this server can reach, the write-safety model, and running it over HTTP.
+Found a vulnerability? [Report it privately](https://github.com/thenavidm/podcastindex-mcp/security/advisories/new), not as a public issue. [SECURITY.md](SECURITY.md) covers what this server can reach, the write-safety model, and running it over HTTP.
 
 ## License
 

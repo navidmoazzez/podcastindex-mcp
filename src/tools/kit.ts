@@ -18,8 +18,8 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z, type ZodRawShape } from "zod";
 import { PodcastIndexError, NotFoundError } from "../api/errors.js";
-import type { PodcastIndexClient } from "../api/client.js";
-import type { HttpClient } from "../api/http.js";
+import { PodcastIndexClient } from "../api/client.js";
+import { HttpClient, type FetchLike } from "../api/http.js";
 import type { Config } from "../config.js";
 import { annotationsFor, type Risk, type Surface, type WriteGuard } from "../safety.js";
 import type { Feed } from "../api/types.js";
@@ -231,6 +231,23 @@ export function register(server: McpServer, ctx: ToolContext, spec: AnyToolSpec)
       }
     }) as never,
   );
+}
+
+/**
+ * Build the context every handler receives.
+ *
+ * Both surfaces call this. The MCP server used to assemble the object inline,
+ * which meant the CLI would have had to assemble a second one and the two would
+ * have drifted the first time a field was added. One constructor, one shape.
+ */
+export function makeContext(
+  config: Config,
+  guard: WriteGuard,
+  fetchImpl: FetchLike = fetch,
+): ToolContext {
+  const http = new HttpClient(config, fetchImpl);
+  const api = new PodcastIndexClient(http);
+  return { api, http, config, guard };
 }
 
 /** Clamp a caller-supplied max into a range the upstream will accept. */

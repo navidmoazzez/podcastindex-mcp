@@ -8,12 +8,11 @@
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { PodcastIndexClient } from "./api/client.js";
-import { HttpClient, type FetchLike } from "./api/http.js";
+import type { FetchLike } from "./api/http.js";
 import { hasCredentials, loadConfig, type Config } from "./config.js";
 import { WriteGuard } from "./safety.js";
 import { ALL_TOOLS } from "./tools/index.js";
-import { register, type ToolContext } from "./tools/kit.js";
+import { makeContext, register, type ToolContext } from "./tools/kit.js";
 
 export { VERSION } from "./version.js";
 import { VERSION } from "./version.js";
@@ -46,10 +45,8 @@ export function buildServer(
   config: Config = loadConfig(),
   fetchImpl: FetchLike = fetch,
 ): BuiltServer {
-  const http = new HttpClient(config, fetchImpl);
-  const api = new PodcastIndexClient(http);
-  const guard = new WriteGuard(config);
-  const ctx: ToolContext = { api, http, config, guard };
+  const guard = new WriteGuard(config, "mcp");
+  const ctx: ToolContext = makeContext(config, guard, fetchImpl);
 
   const server = new McpServer(
     { name: "podcastindex", version: VERSION },
